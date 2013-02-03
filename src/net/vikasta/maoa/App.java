@@ -1,9 +1,6 @@
 package net.vikasta.maoa;
 
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
     public static void main( String[] args )
