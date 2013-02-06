@@ -1,0 +1,14 @@
+Incorporating VCR operations such as forward seeking and pausing into P2P VoD streaming systems can be useful
+Since VCR operations originate from tape playback control VCR operations are the most familiar interactive operations to users than other new control operations like book marking and time compression
+Moreover random seeks pause FF and FB are the basic control operations used to browse long duration videos or some videos with some interesting content to watch
+For example random seeks are usually used to skip uninteresting content like advertisement before a movie while interleaved FF and FB are found to be frequently used when users intend to locate the moment of goal shooting in football matches 
+Pause is the most frequently used user interaction while viewing educational videos such as lectures
+Besides when a list of videos is available to users it is common to see that users preview or browse the video to decide whether they want to watch the entire video
+Further interactive VoD streaming is a kind of non linear media streaming in which the media playback is not sequential in time or space domains Other instances of non linear media streaming include 3D mesh and 3D video streaming virtual environment and zoomable video streaming
+In the long run we believe that our studies on interactive VoD streaming systems can provide insights into the framework of non linear P2P media streaming
+To satisfy users requirement to browse video files some efforts have been made to design successful interactive P2P VoD streaming systems supporting VCR operations
+On one hand interactive P2P VoD streaming systems are supposed to provide near VoD services when users seek to any random view point
+On the other hand they have to ensure good system performance essential to P2P streaming systems which include scalability robustness streaming continuity load balance and control overhead
+Unfortunately existing interactive P2P VoD streaming systems can support random seeks at the expense of substantial control overhead bandwidth wastage or unfairness
+In fact no performance analysis has been done to evaluate which interactive P2P VoD streaming systems can perform better in realistic
+environment using realistic user workloads
