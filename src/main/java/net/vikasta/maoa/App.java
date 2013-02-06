@@ -1,4 +1,4 @@
-package net.vikasta.maoa;
+package main.java.net.vikasta.maoa;
 
 
 public class App 

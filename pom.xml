@@ -24,7 +24,7 @@
   </dependencies>
   
   <build>
-  <sourceDirectory>C:\ratul\code\maoa\src</sourceDirectory>
+<!--  <sourceDirectory>/home/sameer/code/debs/maoa/src</sourceDirectory> -->
 		<plugins>
 			 <plugin>
       <groupId>org.apache.maven.plugins</groupId>

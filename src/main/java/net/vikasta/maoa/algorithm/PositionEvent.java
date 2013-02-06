@@ -1,4 +1,4 @@
-package net.vikasta.maoa.algorithm;
+package main.java.net.vikasta.maoa.algorithm;
 
 
 public class PositionEvent 
