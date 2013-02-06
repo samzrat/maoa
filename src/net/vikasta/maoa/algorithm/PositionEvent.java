@@ -21,8 +21,11 @@ public class PositionEvent
 		this.vy = vy;
 		this.vz = vz;
 	}
-/*	public double speedX()
+
+	public double speedX()
 	{
-		return speed*vx*Math.Math.
-	}*/
+		return speed * vx * Math.pow(2.7182818, -4);
+	    //v'x = |v| * vx*1e-4 * 1e*-6
+	}
+	
 }
