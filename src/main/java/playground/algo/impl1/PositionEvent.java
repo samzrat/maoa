@@ -1,4 +1,4 @@
-package main.java.net.vikasta.maoa.algorithm;
+package main.java.playground.algo.impl1;
 
 
 public class PositionEvent 
@@ -8,7 +8,10 @@ public class PositionEvent
 	final long speed;  //micrometer/sec
 	final long vx, vy, vz; //direction vector with size of 10,000
 	
-
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
 	
 	public PositionEvent(String sid, long x, long y, long z, long speed, long vx, long vy, long vz)
 	{
