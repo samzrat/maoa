@@ -1,4 +1,4 @@
-package main.java.playground.algo.impl1;
+package playground.algo.impl1;
 
 public class Pair<L,R> {
     private L l;

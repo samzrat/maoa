@@ -1,4 +1,4 @@
-package main.java.playground.storm.bolts;
+package playground.storm.bolts;
 
 import backtype.storm.topology.BasicOutputCollector;
 import backtype.storm.topology.OutputFieldsDeclarer;

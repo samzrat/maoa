@@ -1,4 +1,4 @@
-package main.java.playground.storm.spouts;
+package playground.storm.spouts;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

@@ -1,12 +1,12 @@
-package main.java.playground.storm;
+package playground.storm;
 
-import main.java.playground.storm.spouts.WordReader;
+import playground.storm.spouts.WordReader;
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
 import backtype.storm.topology.TopologyBuilder;
 import backtype.storm.tuple.Fields;
-import main.java.playground.storm.bolts.WordCounter;
-import main.java.playground.storm.bolts.WordNormalizer;
+import playground.storm.bolts.WordCounter;
+import playground.storm.bolts.WordNormalizer;
 
 
 public class TopologyMain {
