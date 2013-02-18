@@ -1,61 +1,61 @@
 package playground.algo.impl1;
 
 
+import java.awt.Point;
 import java.util.*;
-import java.util.concurrent.LinkedBlockingQueue;
+
 
 public class EventManager {
+		
+	private final HashMap<String, ArrayList<Field>> playerMap;
 	
-	private final int playerCount;
-	private final ArrayList<Pair<Integer, Integer>> gridDimensions;
-	private final int[] streamWindows;
-	
-	private final PlayerStream[] playerStreams;
-	
-	
-	public EventManager(int playerCount, ArrayList<Pair<Integer, Integer>> gridDimensions, int[] streamWindows )
+	public EventManager(String[] players, Point[] fieldDimensions, ArrayList<Pair1<Integer, Integer>> gridDimensionsList, int[] streamWindows )
 	{
-		this.playerCount = playerCount;
-		this.gridDimensions = gridDimensions; 
-		this.streamWindows = streamWindows;
-		
-		playerStreams = new PlayerStream[playerCount];
-		
-		for(int i=0; i<playerCount; i++)
+		playerMap = new HashMap<String, ArrayList<Field>>(players.length);
+		for(int i=0; i<players.length; i++)
 		{
-			ArrayList<GridStream> gridStreams = new ArrayList<GridStream>(gridDimensions.size());
-			for(int j=0; j<gridDimensions.size(); j++)
-			{
-				ArrayList<LinkedBlockingQueue<PositionEvent>> windowedStreams = new ArrayList<LinkedBlockingQueue<PositionEvent>>(streamWindows.length);
-				for(int k=0; k<streamWindows.length ; k++)
-				{
-					windowedStreams.add(new LinkedBlockingQueue<PositionEvent>());
-				}
-				gridStreams.add(new GridStream(windowedStreams));
-			}
-			playerStreams[i] = new PlayerStream(gridStreams);
+			ArrayList<Field> fields = new ArrayList<Field>(gridDimensionsList.size());
+			for(int i1=0; i1<gridDimensionsList.size(); i1++)
+				fields.add(new Field(fieldDimensions, gridDimensionsList.get(i1), streamWindows));
 			
+			playerMap.put(players[i], fields);		
 		}	
-					
 	}
+	
 	
 	public static void main( String[] args )
     {
         System.out.println( "Booting Event Manager" );
         
-        ArrayList<Pair<Integer, Integer>> gridDimensions = createGridDimensions();
+        ArrayList<Pair1<Integer, Integer>> gridDimensions = createGridDimensions();
         int[] streamWindows = new int[]{1, 5, 10, 40};
+        String[] players = new String[]{"Sameer", "Ratul"};
+        Point[] fieldDimensions = new Point[]{new Point(0, 33965), new Point(52477, 33941), new Point(-50, -33960), new Point(52489, -33939)};
         
-        EventManager eventManager = new EventManager(14, gridDimensions, streamWindows );
+        EventManager eventManager = new EventManager(players, fieldDimensions, gridDimensions, streamWindows );
+        
+        PositionEvent positionEvent = new PositionEvent("Ratul", 457, 150, 15, 0, 0, 0, 0);
+        eventManager.processEvent(positionEvent);
     }
 	
-	private static ArrayList<Pair<Integer, Integer>> createGridDimensions()
+	private void processEvent(PositionEvent positionEvent)
 	{
-		ArrayList<Pair<Integer, Integer>> gridDimensions = new ArrayList<Pair<Integer, Integer>>(4);
-        gridDimensions.add(new Pair<Integer, Integer>(8, 13));
-        gridDimensions.add(new Pair<Integer, Integer>(16, 25));
-        gridDimensions.add(new Pair<Integer, Integer>(32, 50));
-        gridDimensions.add(new Pair<Integer, Integer>(64, 100));
+		ArrayList<Field> fields = playerMap.get(positionEvent.sid);
+		
+		if(fields != null)
+			for(Field field: fields)
+				field.processInputEvent(positionEvent);
+		
+	}
+	
+	private static ArrayList<Pair1<Integer, Integer>> createGridDimensions()
+	{
+		ArrayList<Pair1<Integer, Integer>> gridDimensions = new ArrayList<Pair1<Integer, Integer>>(4);
+        /*gridDimensions.add(new Pair1<Integer, Integer>(8, 13));
+        gridDimensions.add(new Pair1<Integer, Integer>(16, 25));
+        gridDimensions.add(new Pair1<Integer, Integer>(32, 50));
+        gridDimensions.add(new Pair1<Integer, Integer>(64, 100));*/
+		gridDimensions.add(new Pair1<Integer, Integer>(10000, 10000));
         
         return gridDimensions;
 	}

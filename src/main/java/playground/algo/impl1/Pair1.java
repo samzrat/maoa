@@ -1,9 +1,9 @@
 package playground.algo.impl1;
 
-public class Pair<L,R> {
+public class Pair1<L,R> {
     private L l;
     private R r;
-    public Pair(L l, R r){
+    public Pair1(L l, R r){
         this.l = l;
         this.r = r;
     }

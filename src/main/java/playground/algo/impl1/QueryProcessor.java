@@ -1,6 +1,5 @@
 package playground.algo.impl1;
 
-import java.util.ArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class QueryProcessor implements Runnable {
@@ -10,10 +9,10 @@ public class QueryProcessor implements Runnable {
 	QuerySink querySink;
 	int window;
 	
-	public QueryProcessor(String threadName, QuerySink querySink, int window)
+	public QueryProcessor(/*String threadName, */QuerySink querySink, int window)
 	{
 		this.querySink = querySink;
-		runner = new Thread(this, threadName); // (1) Create a new thread.
+		runner = new Thread(this/*, threadName*/); // (1) Create a new thread.
 		System.out.println(runner.getName());
 		runner.start(); // (2) Start the thread.
 	}
@@ -43,17 +42,6 @@ public class QueryProcessor implements Runnable {
 		}
 	}
 	
-	public void dispatchQuerypostEvent(PositionEvent posEvent)
-	{
-		for(int i=0; i<windowedStreams.size(); i++)
-			try
-			{
-				windowedStreams.get(i).put(posEvent);
-			}
-			catch(Exception e)
-			{
-				e.printStackTrace();
-			}
-	}
+	
 
 }
