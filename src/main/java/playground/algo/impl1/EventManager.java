@@ -28,7 +28,7 @@ public class EventManager {
         System.out.println( "Booting Event Manager" );
         
         ArrayList<Pair1<Integer, Integer>> gridDimensions = createGridDimensions();
-        int[] streamWindows = new int[]{1, 5, 10, 40};
+        int[] streamWindows = new int[]{1/*, 5, 10, 40*/};
         String[] players = new String[]{"Sameer", "Ratul"};
         Point[] fieldDimensions = new Point[]{new Point(0, 33965), new Point(52477, 33941), new Point(-50, -33960), new Point(52489, -33939)};
         
