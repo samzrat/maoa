@@ -1,7 +1,6 @@
-.classpath
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
+debs2014/project/target
+debs2014/project/project
+debs2014/target
+debs2014/.settings
+debs2014/.project
+debs2014/.classpath
