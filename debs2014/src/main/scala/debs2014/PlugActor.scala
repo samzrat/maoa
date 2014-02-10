@@ -6,22 +6,18 @@ import akka.actor.ActorLogging
 import akka.actor.Actor
 import akka.cluster.ClusterEvent.MemberEvent
 import akka.cluster.ClusterEvent.UnreachableMember
+import akka.actor.Props
 
-class EventProcessorListener2 extends Actor with ActorLogging {
+object PlugActor {
+  def props(plugId: String): Props =
+    Props(classOf[PlugActor], plugId)
+}
 
-  val cluster = Cluster(context.system)
+class PlugActor(plugId: String) extends Actor with ActorLogging {
 
-  // subscribe to cluster changes, re-subscribe when restart 
-  override def preStart(): Unit = {
-    //#subscribe
-    cluster.subscribe(self, classOf[MemberEvent], classOf[UnreachableMember])
-    //#subscribe
-  }
-  override def postStop(): Unit = cluster.unsubscribe(self)
+  
 
   def receive = {
-    case state: CurrentClusterState =>
-      log.info("Current members: {}", state.members.mkString(", "))
     case MemberUp(member) =>
       log.info("Member is Up: {}", member.address)
     case UnreachableMember(member) =>
