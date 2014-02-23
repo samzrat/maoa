@@ -5,7 +5,7 @@ import com.typesafe.sbt.SbtMultiJvm.MultiJvmKeys.MultiJvm
 
 object DEBS2014EventProcessor extends Build {
 
-  val akkaVersion = "2.3.0-RC2"
+  val akkaVersion = "2.3.0-RC4"
 
   lazy val _DEBS2014EventProcessor = Project(
     id = "debs-2014-event-processor",
